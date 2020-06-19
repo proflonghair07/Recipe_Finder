@@ -4,10 +4,55 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.8.28/dayjs.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma-rtl.min.css">
     <link rel="stylesheet" type="text/css" href="style.css"></link>
-    <title>Document</title>
+    <title>Recipe Finder</title>
   </head>
   <body>
+    <section class="hero is-info">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Recipe Finder
+          </h1>
+          <h2 class="subtitle">
+            <span id="current-date">Today's Date</span><br>
+            Today's Holiday 
+          </h2>
+        </div>
+      </div>
+    </section>
+    <div class="columns is-mobile">
+      <div class="column input-area" style="height: 800px;"><div class="field">
+        <label class="label">Enter Recipe Here</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Text input">
+        </div>
+      </div>
+      
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input type="checkbox">
+            Vegan
+          </label>
+          <label class="checkbox">
+            <input type="checkbox">
+            Under 30 minutes
+          </label>
+        </div>
+      </div>
+      
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link">Submit</button>
+        </div>
+        
+      </div>
+    </div>
+      <div class="column output-area">output</div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
