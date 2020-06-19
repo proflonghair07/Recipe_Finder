@@ -1,3 +1,8 @@
+img {
+  border: 2px solid black;
+  border-radius: 6px;
+}
+
 .input-area {
   background-color: #808080;
   padding-left: 30px;

@@ -34,3 +34,37 @@ var date =
   today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
 
 console.log(dayjs(date).format("dddd MMMM D"));
+
+// spoonacular
+function getsource(id) {
+  $.ajax({
+    url:
+      "https://api.spoonacular.com/recipes/" +
+      id +
+      "/information?apiKey=87e8037ccabf458e93f0ac7bebbe6b75",
+    success: function (res) {
+      document.getElementById("source-link").innerHTML = res.sourceUrl;
+      document.getElementById("source-link").href = res.sourceUrl;
+    },
+  });
+}
+
+function getRecipe(q) {
+  $.ajax({
+    url:
+      "https://api.spoonacular.com/recipes/search?apiKey=87e8037ccabf458e93f0ac7bebbe6b75&number=1&query=" +
+      q,
+    success: function (res) {
+      document.getElementById("output-area").innerHTML =
+        "<h1>" +
+        res.results[0].title +
+        "</h1><br><img src='" +
+        res.baseUri +
+        res.results[0].image +
+        "'width='400' /><br> ready in " +
+        res.results[0].readyInMinutes +
+        " minutes";
+      getsource(res.results[0].id);
+    },
+  });
+}
