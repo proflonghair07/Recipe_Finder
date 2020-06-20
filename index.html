@@ -10,7 +10,7 @@
     <title>Recipe Finder</title>
   </head>
   <body>
-    <section class="hero is-info">
+    <section class="hero" id="header">
       <div class="hero-body">
         <div class="container">
           <h1 class="title">
@@ -24,7 +24,7 @@
       </div>
     </section>
     <div class="columns is-mobile">
-      <div class="column input-area" style="height: 800px;"><div class="field">
+      <div class="column input-area" id="input-area" style="height: 800px;"><div class="field">
         <label class="label">Enter Recipe Here</label>
         <div class="control">
           <input class="input" id="search" type="text" placeholder="Text input">
@@ -51,7 +51,7 @@
         
       </div>
     </div>
-      <div class="column output-area"><div id="output-area"></div><a href="" id="source-link"></a></div>
+      <div class="column output-area" id="output-container"><div id="output-area"></div><a href="" id="source-link"></a><br><div id="output-area-two"></div></div>
     </div>
 
     <script src="script.js"></script>

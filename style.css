@@ -11,3 +11,23 @@ img {
 .output-area {
   background-color: #a9a9a9;
 }
+
+.daytime-input {
+  background-color: #ef810e;
+}
+
+.daytime-output {
+  background-color: #e5de44;
+}
+
+.nighttime-input {
+  background-color: #001a26;
+}
+
+.nighttime-output {
+  background-color: #053752;
+}
+
+.nighttime-header {
+  background-color: #040404;
+}
