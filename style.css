@@ -1,10 +1,18 @@
+h1 {
+  font-size: 20px;
+}
+
+hr {
+  background-color: black;
+  width: 250px;
+}
+
 img {
   border: 2px solid black;
   border-radius: 6px;
 }
 
 .input-area {
-  background-color: #808080;
   padding-left: 30px;
 }
 

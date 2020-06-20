@@ -77,6 +77,26 @@ function getsource(id) {
   });
 }
 
+function getSource(id) {
+  $.ajax({
+    url:
+      "https://api.spoonacular.com/recipes/" +
+      id +
+      "/information?apiKey=87e8037ccabf458e93f0ac7bebbe6b75",
+    success: function (res) {
+      //delete previous content
+      $("#output-area").empty();
+      for (i = 0; i < 5; i++) {
+        $("#output-area").append(
+          "<a id='source-link'>" + res.sourceUrl[i] + "</a>"
+        );
+        $("#source-link").href = res.sourceUrl;
+        // getsource(res.results[i].id);
+      }
+    },
+  });
+}
+
 function getRecipe(q) {
   $.ajax({
     url:
@@ -92,9 +112,10 @@ function getRecipe(q) {
             "</h1><br><img src='" +
             res.baseUri +
             res.results[i].image +
-            "'width='400' /><br> ready in " +
+            "'width='200'height='200' /><br>Cook time: " +
             res.results[i].readyInMinutes +
-            " minutes"
+            " minutes" +
+            "<hr>"
         );
         // getsource(res.results[i].id);
       }
