@@ -44,6 +44,21 @@ $(document).ready(function () {
   }
 });
 
+// holiday api
+$.ajax({
+  url:
+    "https://holidayapi.com/v1/holidays?pretty&key=8e5ba886-1035-4c5a-82aa-5d5d05dfef45&country=US&year=" +
+    2019 +
+    "&month=" +
+    dayjs(date).format("MM") +
+    "&day=" +
+    dayjs(date).format("D"),
+  method: "GET",
+}).then(function (response) {
+  console.log(response.holidays[0].name);
+  $("#current-holiday").text("Happy " + response.holidays[0].name + "!");
+});
+
 // spoonacular
 var recipeArray = [];
 
