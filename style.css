@@ -22,12 +22,10 @@ img {
 
 .nighttime-input {
   background-color: #001a26;
+  color: white;
 }
 
 .nighttime-output {
   background-color: #053752;
-}
-
-.nighttime-header {
-  background-color: #040404;
+  color: white;
 }

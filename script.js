@@ -34,10 +34,13 @@ $(document).ready(function () {
     $("#input-area").addClass("daytime-input");
     $("#output-container").addClass("daytime-output");
     $("#header").addClass("is-info");
+    $("#theme-div").html("Day-time Theme <i class='far fa-sun'></i>");
   } else {
     $("#input-area").addClass("nighttime-input");
     $("#output-container").addClass("nighttime-output");
     $("#header").addClass("is-dark");
+    $(".label").addClass("nighttime-input");
+    $("#theme-div").html("Night-time Theme <i class='far fa-moon'></i>");
   }
 });
 
