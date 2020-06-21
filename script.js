@@ -18,18 +18,8 @@ var dayHour = dayjs(date).format("H");
 console.log(dayHour);
 
 $(document).ready(function () {
-  var today = new Date();
-
-  var date =
-    today.getFullYear() +
-    "-" +
-    (today.getMonth() + 1) +
-    "-" +
-    today.getDate() +
-    "-" +
-    today.getHours();
   var dayHour = dayjs(date).format("H");
-
+  $("#link-output").hide();
   if (dayHour > 4 && dayHour < 19) {
     $("#input-area").addClass("daytime-input");
     $("#output-container").addClass("daytime-output");
@@ -71,7 +61,8 @@ function getsource(id) {
       id +
       "/information?apiKey=87e8037ccabf458e93f0ac7bebbe6b75",
     success: function (res) {
-      $("#output-area").append(
+      $("#link-output").show();
+      $("#link-output").append(
         "<a href='" +
           res.sourceUrl +
           "' target='_blank'>" +
@@ -112,6 +103,7 @@ function getRecipe(q) {
 
       success: function (res) {
         //delete previous content
+        $("#link-output").empty();
         $("#output-area").empty();
         for (i = 0; i < 5; i++) {
           $("#output-area").append(
@@ -139,6 +131,7 @@ function getRecipe(q) {
 
       success: function (res) {
         //delete previous content
+        $("#link-output").empty();
         $("#output-area").empty();
         for (i = 0; i < 5; i++) {
           $("#output-area").append(
@@ -166,6 +159,7 @@ function getRecipe(q) {
 
       success: function (res) {
         //delete previous content
+        $("#link-output").empty();
         $("#output-area").empty();
         for (i = 0; i < 5; i++) {
           $("#output-area").append(
@@ -193,6 +187,7 @@ function getRecipe(q) {
 
       success: function (res) {
         //delete previous content
+        $("#link-output").empty();
         $("#output-area").empty();
         for (i = 0; i < 5; i++) {
           $("#output-area").append(
