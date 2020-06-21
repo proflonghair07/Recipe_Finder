@@ -71,37 +71,40 @@ function getsource(id) {
       id +
       "/information?apiKey=87e8037ccabf458e93f0ac7bebbe6b75",
     success: function (res) {
-      document.getElementById("source-link").innerHTML = res.sourceUrl;
-      document.getElementById("source-link").href = res.sourceUrl;
-    },
-  });
-}
-
-function getSource(id) {
-  $.ajax({
-    url:
-      "https://api.spoonacular.com/recipes/" +
-      id +
-      "/information?apiKey=87e8037ccabf458e93f0ac7bebbe6b75",
-    success: function (res) {
-      //delete previous content
-      $("#output-area").empty();
       for (i = 0; i < 5; i++) {
-        $("#output-area").append(
-          "<a id='source-link'>" + res.sourceUrl[i] + "</a>"
-        );
-        $("#source-link").href = res.sourceUrl;
-        // getsource(res.results[i].id);
+        $("#source-link").append(res.sourceUrl);
+        document.getElementById("source-link").href = res.sourceUrl;
       }
     },
   });
 }
+
+// function getSource(id) {
+//   $.ajax({
+//     url:
+//       "https://api.spoonacular.com/recipes/" +
+//       id +
+//       "/information?apiKey=87e8037ccabf458e93f0ac7bebbe6b75",
+//     success: function (res) {
+//       //delete previous content
+//       $("#output-area").empty();
+//       for (i = 0; i < 5; i++) {
+//         $("#output-area").append(
+//           "<a id='source-link'>" + res.sourceUrl[i] + "</a>"
+//         );
+//         $("#source-link").href = res.sourceUrl;
+//         // getsource(res.results[i].id);
+//       }
+//     },
+//   });
+// }
 
 function getRecipe(q) {
   $.ajax({
     url:
       "https://api.spoonacular.com/recipes/search?apiKey=87e8037ccabf458e93f0ac7bebbe6b75&number=5&query=" +
       q,
+
     success: function (res) {
       //delete previous content
       $("#output-area").empty();
@@ -115,9 +118,9 @@ function getRecipe(q) {
             "'width='200'height='200' /><br>Cook time: " +
             res.results[i].readyInMinutes +
             " minutes" +
+            getsource(res.results[i].id) +
             "<hr>"
         );
-        // getsource(res.results[i].id);
       }
     },
   });
