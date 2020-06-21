@@ -71,10 +71,14 @@ function getsource(id) {
       id +
       "/information?apiKey=87e8037ccabf458e93f0ac7bebbe6b75",
     success: function (res) {
-      for (i = 0; i < 5; i++) {
-        $("#source-link").append(res.sourceUrl);
-        document.getElementById("source-link").href = res.sourceUrl;
-      }
+      $("#output-area").append(
+        "<a href='" +
+          res.sourceUrl +
+          "' target='_blank'>" +
+          res.sourceUrl +
+          "</a><br>"
+      );
+      // document.getElementById("source-link").href = res.sourceUrl;
     },
   });
 }
@@ -100,28 +104,111 @@ function getsource(id) {
 // }
 
 function getRecipe(q) {
-  $.ajax({
-    url:
-      "https://api.spoonacular.com/recipes/search?apiKey=87e8037ccabf458e93f0ac7bebbe6b75&number=5&query=" +
-      q,
+  if ($("#vegan").is(":checked") && $("#gluten-free").not(":checked")) {
+    $.ajax({
+      url:
+        "https://api.spoonacular.com/recipes/search?apiKey=87e8037ccabf458e93f0ac7bebbe6b75&number=50&diet=vegan&query=" +
+        q,
 
-    success: function (res) {
-      //delete previous content
-      $("#output-area").empty();
-      for (i = 0; i < 5; i++) {
-        $("#output-area").append(
-          "<h1>" +
-            res.results[i].title +
-            "</h1><br><img src='" +
-            res.baseUri +
-            res.results[i].image +
-            "'width='200'height='200' /><br>Cook time: " +
-            res.results[i].readyInMinutes +
-            " minutes" +
-            getsource(res.results[i].id) +
-            "<hr>"
-        );
-      }
-    },
-  });
+      success: function (res) {
+        //delete previous content
+        $("#output-area").empty();
+        for (i = 0; i < 5; i++) {
+          $("#output-area").append(
+            "<h1>" +
+              res.results[i].title +
+              "</h1><br><img src='" +
+              res.baseUri +
+              res.results[i].image +
+              "'width='200'height='200' /><br>Cook time: " +
+              res.results[i].readyInMinutes +
+              " minutes<br>" +
+              "Vegan" +
+              "<hr>"
+          );
+          getsource(res.results[i].id);
+          console.log(res.results);
+        }
+      },
+    });
+  } else if ($("#gluten-free").is(":checked") && $("#vegan").not(":checked")) {
+    $.ajax({
+      url:
+        "https://api.spoonacular.com/recipes/search?apiKey=87e8037ccabf458e93f0ac7bebbe6b75&number=50&intolerances=gluten&query=" +
+        q,
+
+      success: function (res) {
+        //delete previous content
+        $("#output-area").empty();
+        for (i = 0; i < 5; i++) {
+          $("#output-area").append(
+            "<h1>" +
+              res.results[i].title +
+              "</h1><br><img src='" +
+              res.baseUri +
+              res.results[i].image +
+              "'width='200'height='200' /><br>Cook time: " +
+              res.results[i].readyInMinutes +
+              " minutes<br>" +
+              "Gluten Free" +
+              "<hr>"
+          );
+          getsource(res.results[i].id);
+          console.log(res.results);
+        }
+      },
+    });
+  } else if ($("#vegan").is(":checked") && $("#gluten-free").is(":checked")) {
+    $.ajax({
+      url:
+        "https://api.spoonacular.com/recipes/search?apiKey=87e8037ccabf458e93f0ac7bebbe6b75&number=50&intolerances=gluten&diet=vegan&query=" +
+        q,
+
+      success: function (res) {
+        //delete previous content
+        $("#output-area").empty();
+        for (i = 0; i < 5; i++) {
+          $("#output-area").append(
+            "<h1>" +
+              res.results[i].title +
+              "</h1><br><img src='" +
+              res.baseUri +
+              res.results[i].image +
+              "'width='200'height='200' /><br>Cook time: " +
+              res.results[i].readyInMinutes +
+              " minutes<br>" +
+              "Vegan and Gluten Free" +
+              "<hr>"
+          );
+          getsource(res.results[i].id);
+          console.log(res.results);
+        }
+      },
+    });
+  } else
+    $.ajax({
+      url:
+        "https://api.spoonacular.com/recipes/search?apiKey=87e8037ccabf458e93f0ac7bebbe6b75&number=50&query=" +
+        q,
+
+      success: function (res) {
+        //delete previous content
+        $("#output-area").empty();
+        for (i = 0; i < 5; i++) {
+          $("#output-area").append(
+            "<h1>" +
+              res.results[i].title +
+              "</h1><br><img src='" +
+              res.baseUri +
+              res.results[i].image +
+              "'width='200'height='200' /><br>Cook time: " +
+              res.results[i].readyInMinutes +
+              " minutes" +
+              "<hr>"
+          );
+          getsource(res.results[i].id);
+          console.log(res.results);
+        }
+      },
+    });
 }
