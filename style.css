@@ -1,11 +1,13 @@
+
 h1 {
   font-size: 20px;
+  background-image: "https://d3ui957tjb5bqd.cloudfront.net/images/screenshots/products/13/131/131149/vmqehwoshp6lnlitjpn6szerugzyrskyca4cqwgjussoijcputspyyzyqkiswgqe-o.jpg?1444221734";
 }
 
 hr {
   background-color: black;
   width: 250px;
-}
+};
 
 img {
   border: 2px solid black;
@@ -21,11 +23,11 @@ img {
 }
 
 .daytime-input {
-  background-color: #ef810e;
+  background-color: #E6C133;
 }
 
 .daytime-output {
-  background-color: #e5de44;
+  background-color: #FF9E2C;
 }
 
 .nighttime-input {
