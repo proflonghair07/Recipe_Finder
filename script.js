@@ -17,9 +17,11 @@ console.log(dayjs(date).format("dddd MMMM D"));
 var dayHour = dayjs(date).format("H");
 console.log(dayHour);
 
+// Daytime and Night-time themes.  Checks current hour and displays daytime theme if it is after four in the morning and before seven at night.
+// This function also hides the link-output-title div
 $(document).ready(function () {
   var dayHour = dayjs(date).format("H");
-  $("#link-output").hide();
+  $("#link-output-title").hide();
   if (dayHour > 4 && dayHour < 19) {
     $("#input-area").addClass("daytime-input");
     $("#output-container").addClass("daytime-output");
@@ -36,7 +38,7 @@ $(document).ready(function () {
   }
 });
 
-// holiday api
+// Holiday api.  Prints current holiday to the to the header.
 $.ajax({
   url:
     "https://holidayapi.com/v1/holidays?pretty&key=8e5ba886-1035-4c5a-82aa-5d5d05dfef45&country=US&year=" +
@@ -51,9 +53,8 @@ $.ajax({
   $("#current-holiday").text("Happy " + response.holidays[0].name + "!");
 });
 
-// spoonacular
-var recipeArray = [];
-
+// Spoonacular api functionality
+// Gets the links and appends the to the link-output div
 function getsource(id) {
   $.ajax({
     url:
@@ -61,7 +62,8 @@ function getsource(id) {
       id +
       "/information?apiKey=87e8037ccabf458e93f0ac7bebbe6b75",
     success: function (res) {
-      $("#link-output").show();
+      $("#link-output-title").show(500);
+      $("#link-output").slideDown(800);
       $("#link-output").append(
         "<a href='" +
           res.sourceUrl +
@@ -69,32 +71,14 @@ function getsource(id) {
           res.sourceUrl +
           "</a><br>"
       );
-      // document.getElementById("source-link").href = res.sourceUrl;
     },
   });
 }
 
-// function getSource(id) {
-//   $.ajax({
-//     url:
-//       "https://api.spoonacular.com/recipes/" +
-//       id +
-//       "/information?apiKey=87e8037ccabf458e93f0ac7bebbe6b75",
-//     success: function (res) {
-//       //delete previous content
-//       $("#output-area").empty();
-//       for (i = 0; i < 5; i++) {
-//         $("#output-area").append(
-//           "<a id='source-link'>" + res.sourceUrl[i] + "</a>"
-//         );
-//         $("#source-link").href = res.sourceUrl;
-//         // getsource(res.results[i].id);
-//       }
-//     },
-//   });
-// }
-
+// Gets the recipes from Spoonacular api and appends five results to the output-are div using a for loop
+// Conditionals listen the checkboxes and filter results accordingly
 function getRecipe(q) {
+  // Only vegan is checked
   if ($("#vegan").is(":checked") && $("#gluten-free").not(":checked")) {
     $.ajax({
       url:
@@ -123,7 +107,9 @@ function getRecipe(q) {
         }
       },
     });
-  } else if ($("#gluten-free").is(":checked") && $("#vegan").not(":checked")) {
+  }
+  // Only gluten-free is checked
+  else if ($("#gluten-free").is(":checked") && $("#vegan").not(":checked")) {
     $.ajax({
       url:
         "https://api.spoonacular.com/recipes/search?apiKey=87e8037ccabf458e93f0ac7bebbe6b75&number=50&intolerances=gluten&query=" +
@@ -151,7 +137,9 @@ function getRecipe(q) {
         }
       },
     });
-  } else if ($("#vegan").is(":checked") && $("#gluten-free").is(":checked")) {
+  }
+  //Vegan and gluten-free are checked (not working properly)
+  else if ($("#vegan").is(":checked") && $("#gluten-free").is(":checked")) {
     $.ajax({
       url:
         "https://api.spoonacular.com/recipes/search?apiKey=87e8037ccabf458e93f0ac7bebbe6b75&number=50&intolerances=gluten&diet=vegan&query=" +
@@ -179,7 +167,9 @@ function getRecipe(q) {
         }
       },
     });
-  } else
+  }
+  // Neither vegan or gluten-free are checked
+  else
     $.ajax({
       url:
         "https://api.spoonacular.com/recipes/search?apiKey=87e8037ccabf458e93f0ac7bebbe6b75&number=50&query=" +
@@ -206,4 +196,5 @@ function getRecipe(q) {
         }
       },
     });
+  $("#link-output").slideDown(1000);
 }
