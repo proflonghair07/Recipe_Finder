@@ -68,7 +68,7 @@ function getsource(id) {
         "<a href='" +
           res.sourceUrl +
           "' target='_blank'>" +
-          res.sourceUrl +
+          res.title +
           "</a><br>"
       );
     },
