@@ -91,7 +91,7 @@ function getRecipe(q) {
         $("#output-area").empty();
         for (i = 0; i < 5; i++) {
           $("#output-area").append(
-            "<h1>" +
+            "<div class='card'><h1>" +
               res.results[i].title +
               "</h1><br><img src='" +
               res.baseUri +
@@ -100,7 +100,7 @@ function getRecipe(q) {
               res.results[i].readyInMinutes +
               " minutes<br>" +
               "Vegan" +
-              "<hr>"
+              "</div>"
           );
           getsource(res.results[i].id);
           console.log(res.results);
@@ -121,7 +121,7 @@ function getRecipe(q) {
         $("#output-area").empty();
         for (i = 0; i < 5; i++) {
           $("#output-area").append(
-            "<h1>" +
+            "<div class='card'><h1>" +
               res.results[i].title +
               "</h1><br><img src='" +
               res.baseUri +
@@ -130,7 +130,7 @@ function getRecipe(q) {
               res.results[i].readyInMinutes +
               " minutes<br>" +
               "Gluten Free" +
-              "<hr>"
+              "</div>"
           );
           getsource(res.results[i].id);
           console.log(res.results);
@@ -151,7 +151,7 @@ function getRecipe(q) {
         $("#output-area").empty();
         for (i = 0; i < 5; i++) {
           $("#output-area").append(
-            "<h1>" +
+            "<div class='card'><h1>" +
               res.results[i].title +
               "</h1><br><img src='" +
               res.baseUri +
@@ -160,7 +160,7 @@ function getRecipe(q) {
               res.results[i].readyInMinutes +
               " minutes<br>" +
               "Vegan and Gluten Free" +
-              "<hr>"
+              "</div>"
           );
           getsource(res.results[i].id);
           console.log(res.results);
@@ -181,15 +181,14 @@ function getRecipe(q) {
         $("#output-area").empty();
         for (i = 0; i < 5; i++) {
           $("#output-area").append(
-            "<h1>" +
+            "<div class='card'><h1>" +
               res.results[i].title +
               "</h1><br><img src='" +
               res.baseUri +
               res.results[i].image +
               "'width='200'height='200' /><br>Cook time: " +
               res.results[i].readyInMinutes +
-              " minutes" +
-              "<hr>"
+              " minutes<br></div>"
           );
           getsource(res.results[i].id);
           console.log(res.results);
