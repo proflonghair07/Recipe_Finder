@@ -25,7 +25,7 @@ $(document).ready(function () {
   if (dayHour > 4 && dayHour < 19) {
     $("#input-area").addClass("daytime-input");
     $("#output-container").addClass("daytime-output");
-    $("#header").addClass("is-info");
+    $("#header").addClass("is-light");
     $("#theme-div").html("Day-time Theme <i class='far fa-sun'></i>");
     $("i").addClass("sun");
   } else {
