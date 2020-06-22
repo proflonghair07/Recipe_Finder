@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" 
+    type="image/png" 
+    href="recipe_favicon.png" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.8.28/dayjs.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma-rtl.min.css">
@@ -11,6 +14,7 @@
     <title>Recipe Finder</title>
   </head>
   <body>
+    <!-- Header section.  Contains title current-date, current-holiday, and theme. -->
     <section class="hero" id="header">
       <div class="hero-body">
         <div class="container">
@@ -24,21 +28,21 @@
         
           </h1>
           <h2 class="subtitle">
-            <span id="current-date">Today's Date</span><br>
+            <span id="current-date"></span><br>
             <span id="current-holiday"></span><br>
             <span id="theme-div"></span> 
           </h2>
         </div>
       </div>
     </section>
+    <!-- Input area.  Contains recipe input, checkboxes, search button and link output divs. -->
     <div class="columns is-mobile">
-      <div class="column input-area" id="input-area" style="height: 1600px;"><div class="field">
+      <div class="column input-area" id="input-area" style="height: 2750px;"><div class="field">
         <label class="label">Enter Recipe Here</label>
         <div class="control">
           <input class="input" id="search" type="text" placeholder="Text input">
         </div>
       </div>
-      
       <div class="field">
         <div class="control">
           <label class="checkbox">
@@ -51,7 +55,6 @@
           </label>
         </div>
       </div>
-      
       <div class="field is-grouped">
         <div class="control">
           <button class="button is-light" onclick="getRecipe(document.getElementById('search').value)">Search</button>
@@ -59,9 +62,12 @@
         </div>
 
       </div>
-      <div id="link-output"><h1>Recipe Links:</h1><br></div>
+      <div id="link-output-title"><h1>Recipe Links:</h1><br></div>
+      <div id="link-output"></div>
     </div>
-      <div class="column output-area" id="output-container"><div id="output-area"></div><a href="" id="source-link"></a><br><div id="output-area-two"></div></div>
+    <!-- Output Area.  Where the recipes are rendered -->
+    <div class="column output-area" id="output-container">
+      <div id="output-area"></div>
     </div>
 
     <script src="script.js"></script>
