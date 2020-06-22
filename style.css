@@ -1,12 +1,13 @@
 h1 {
   font-size: 20px;
   background-image: "https://d3ui957tjb5bqd.cloudfront.net/images/screenshots/products/13/131/131149/vmqehwoshp6lnlitjpn6szerugzyrskyca4cqwgjussoijcputspyyzyqkiswgqe-o.jpg?1444221734";
+  text-align: center;
 }
 
 hr {
   background-color: black;
   width: 250px;
-};
+}
 
 img {
   border: 2px solid black;
@@ -25,11 +26,11 @@ img {
 
 /* Daytime and Nighttime themes */
 .daytime-input {
-  background-color: #E6C133;
+  background-color: #e6c133;
 }
 
 .daytime-output {
-  background-color: #FF9E2C;
+  background-color: #ff9e2c;
 }
 
 .nighttime-input {
@@ -48,4 +49,10 @@ img {
 
 .moon {
   color: #d0d5d2;
+}
+
+.has-bg-img {
+  background: url("https://d3ui957tjb5bqd.cloudfront.net/images/screenshots/products/13/131/131149/vmqehwoshp6lnlitjpn6szerugzyrskyca4cqwgjussoijcputspyyzyqkiswgqe-o.jpg?1444221734")
+    center center;
+  background-size: cover;
 }
