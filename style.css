@@ -1,7 +1,6 @@
 h1 {
   font-size: 20px;
   background-image: "https://d3ui957tjb5bqd.cloudfront.net/images/screenshots/products/13/131/131149/vmqehwoshp6lnlitjpn6szerugzyrskyca4cqwgjussoijcputspyyzyqkiswgqe-o.jpg?1444221734";
-  text-align: center;
 }
 
 hr {
@@ -13,6 +12,8 @@ img {
   border: 2px solid black;
   border-radius: 6px;
   box-shadow: 5px 5px 8px #888888;
+  width: 200px;
+  height: 200px;
 }
 
 /* Class selectors */
@@ -55,4 +56,15 @@ img {
   background: url("https://d3ui957tjb5bqd.cloudfront.net/images/screenshots/products/13/131/131149/vmqehwoshp6lnlitjpn6szerugzyrskyca4cqwgjussoijcputspyyzyqkiswgqe-o.jpg?1444221734")
     center center;
   background-size: cover;
+}
+
+.card {
+  display: inline-block;
+  text-align: center;
+  width: 400px;
+  height: 325px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  background-color: #f0ead6;
+  border-radius: 2px;
 }
