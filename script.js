@@ -20,6 +20,7 @@ console.log(dayHour);
 // Daytime and Night-time themes.  Checks current hour and displays daytime theme if it is after four in the morning and before seven at night.
 // This function also hides the link-output-title div
 $(document).ready(function () {
+  displayHoliday();
   var dayHour = dayjs(date).format("H");
   $("#link-output-title").hide();
   if (dayHour > 4 && dayHour < 19) {
@@ -31,7 +32,7 @@ $(document).ready(function () {
   } else {
     $("#input-area").addClass("nighttime-input");
     $("#output-container").addClass("nighttime-output");
-    $("#header").addClass("is-dark");
+    $("#header").addClass("is-light");
     $(".label").addClass("nighttime-input");
     $("#theme-div").html("Night-time Theme <i class='far fa-moon'></i>");
     $("i").addClass("moon");
@@ -39,20 +40,23 @@ $(document).ready(function () {
 });
 
 // Holiday api.  Prints current holiday to the to the header.
-$.ajax({
-  url:
-    "https://holidayapi.com/v1/holidays?pretty&key=8e5ba886-1035-4c5a-82aa-5d5d05dfef45&country=US&year=" +
-    2019 +
-    "&month=" +
-    dayjs(date).format("MM") +
-    "&day=" +
-    dayjs(date).format("D"),
-  method: "GET",
-}).then(function (response) {
-  console.log(response.holidays[0].name);
-  $("#current-holiday").text("Happy " + response.holidays[0].name + "!");
-});
-
+function displayHoliday() {
+  $.ajax({
+    url:
+      "https://holidayapi.com/v1/holidays?pretty&key=8e5ba886-1035-4c5a-82aa-5d5d05dfef45&country=US&year=" +
+      2019 +
+      // "&month=1&day=1",
+      "&month=" +
+      dayjs(date).format("MM") +
+      "&day=" +
+      dayjs(date).format("D"),
+    method: "GET",
+  }).then(function (response) {
+    console.log(response);
+    console.log("holiday test");
+    $("#current-holiday").text("Happy " + response.holidays[0].name + "!");
+  });
+}
 // Spoonacular api functionality
 // Gets the links and appends the to the link-output div
 function getsource(id) {
@@ -164,6 +168,7 @@ function getRecipe(q) {
           );
           getsource(res.results[i].id);
           console.log(res.results);
+          console.log("test");
         }
       },
     });
