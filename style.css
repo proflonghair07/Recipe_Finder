@@ -52,6 +52,7 @@ img {
   color: #d0d5d2;
 }
 
+/* adds background image to header */
 .has-bg-img {
   background: url("https://d3ui957tjb5bqd.cloudfront.net/images/screenshots/products/13/131/131149/vmqehwoshp6lnlitjpn6szerugzyrskyca4cqwgjussoijcputspyyzyqkiswgqe-o.jpg?1444221734")
     center center;
@@ -67,4 +68,8 @@ img {
   margin-bottom: 20px;
   background-color: #f0ead6;
   border-radius: 2px;
+}
+
+.has-text-centered {
+  color: black;
 }
