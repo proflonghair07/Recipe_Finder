@@ -31,7 +31,7 @@ $(document).ready(function () {
   } else {
     $("#input-area").addClass("nighttime-input");
     $("#output-container").addClass("nighttime-output");
-    $("#header").addClass("is-dark");
+    $("#header").addClass("is-light");
     $(".label").addClass("nighttime-input");
     $("#theme-div").html("Night-time Theme <i class='far fa-moon'></i>");
     $("i").addClass("moon");
