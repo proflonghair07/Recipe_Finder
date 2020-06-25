@@ -5,7 +5,7 @@
 ## Link to deployed application
 ## https://proflonghair07.github.io/Recipe_Finder/
 ## Screenshot of deployed application
-## ![](Slideshow_pictures/recipe_finder_screenshot.png)
+## ![](Slideshow_pictures/recipe_finder_screenshot.PNG)
 ## Server-side api's: "Recipe-Food-Nutrition", "Holidays".
 ## Third party api: day.js
 ## css framework: bulma
